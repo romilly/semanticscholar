@@ -349,6 +349,7 @@ class SemanticScholar:
         data = self.get_author(paper_id)
 
         return data.raw_data
+
     def references(self, paper_id):
         url = f'{self.api_url}/paper/{paper_id}/references'
         return self._requester.get_data(url, '', self.auth_header)
