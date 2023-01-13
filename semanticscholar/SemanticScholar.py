@@ -350,17 +350,6 @@ class SemanticScholar:
 
         return data.raw_data
 
-    def references(self, paper_id):
-        url = f'{self.api_url}/paper/{paper_id}/references'
-        return self._requester.get_data(url, '', self.auth_header)
-
-    def citations(self, paper_id):
-        url = f'{self.api_url}/paper/{paper_id}/citations'
-        fields = ['title','isInfluential']
-        fields = ','.join(fields)
-        parameters = f'&fields={fields}'
-        citations = self._requester.get_data(url, parameters, self.auth_header)['data']
-        return [Citation(citation) for citation in citations]
 
 
 
